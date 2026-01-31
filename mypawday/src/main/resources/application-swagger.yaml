@@ -1,0 +1,9 @@
+springdoc:
+  api-docs:
+    enabled: ${SWAGGER_ENABLED:true}
+
+  swagger-ui:
+    enabled: ${SWAGGER_ENABLED:true}
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
