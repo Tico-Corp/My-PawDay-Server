@@ -1,3 +1,8 @@
 spring:
   application:
     name: mypawday
+
+  profiles:
+    include:
+      - datasource
+      - swagger
