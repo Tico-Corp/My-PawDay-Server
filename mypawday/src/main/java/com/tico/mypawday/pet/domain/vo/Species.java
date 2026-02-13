@@ -12,6 +12,9 @@ public enum Species {
     private final String description;
 
     public static Species from(String value) {
+        if (value == null) {
+            throw new IllegalArgumentException("종족은 필수입니다.");
+        }
         try {
             return Species.valueOf(value.toUpperCase());
         } catch (IllegalArgumentException e) {
