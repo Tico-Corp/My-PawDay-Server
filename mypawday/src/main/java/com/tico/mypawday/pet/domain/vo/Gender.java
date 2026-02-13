@@ -12,6 +12,9 @@ public enum Gender {
     private final String description;
 
     public static Gender from(String value) {
+        if (value == null) {
+            throw new IllegalArgumentException("성별은 필수입니다.");
+        }
         try {
             return Gender.valueOf(value.toUpperCase());
         } catch (IllegalArgumentException e) {
