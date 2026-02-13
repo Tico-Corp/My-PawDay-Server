@@ -1,5 +1,6 @@
 package com.tico.mypawday.walk.domain.entity;
 
+import com.tico.mypawday.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -14,10 +15,14 @@ import java.util.UUID;
 @Entity
 @Table(name = "p_walk_media")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class WalkMedia {
+public class WalkMedia extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "media_id")
-    private UUID mediaId;
+    @Column(name = "media_id", nullable = false, updatable = false)
+    private UUID mediaId;  // 미디어 도메인 ID를 PK로 사용
+
+    @Column(name = "display_order", nullable = false)
+    private int displayOrder;
+
+    // walk_id는 Walk 엔티티의 @JoinColumn으로 관리됨
 }
